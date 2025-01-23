@@ -1,3 +1,4 @@
 dbt-core==1.9.1
 dbt-postgres==1.9.0
 pytz==2024.2
+pre_commit==4.1.0

@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: case_files_v
+    description: "Case Files View Description"
+    columns:
+      - name: analytics_id
+        description: "pseudonymized case_files.id"
+        data_tests:
+          - not_null
+      - name: phase_sort
+        description: "case file phase sorted"
+
+  - name: cf_states
+    description: "Case Files States View Description"
+    columns:
+      - name: id
+        description: "case_files_states.id"
+        data_tests:
+          - unique
+      - name: phase_sort
+        description: "case file phase sorted"

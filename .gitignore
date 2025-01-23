@@ -32,13 +32,13 @@ htmlcov/
 cython_debug/
 
 # dbt
-dbt_modules/
+dbt_packages/
 target/
 logs/
 manifest.json
 run_results.json
 profiles.yml
-dbt_packages/
+.user.yml
 
 # other
 .DS_Store
