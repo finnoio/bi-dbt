@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.egg
+*.egg-info/
+.eggs/
+*.log
+*.pot
+*.mo
+*.pyc
+.pytest_cache/
+.cache/
+.tox/
+.coverage
+*.coverage
+.coverage.*
+.nox/
+htmlcov/
+*.ipynb_checkpoints
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+cython_debug/
+
+# dbt
+dbt_modules/
+target/
+logs/
+manifest.json
+run_results.json
+profiles.yml
+dbt_packages/
+
+# other
+.DS_Store
+.idea/
