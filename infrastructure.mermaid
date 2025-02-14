@@ -1,0 +1,37 @@
+flowchart LR
+    subgraph "Source"
+        git[("Git Repository\nDBT Code")]
+    end
+
+    subgraph "AWS CodePipeline"
+        direction TB
+        source[Source Stage]
+        build[Build Stage\nCodeBuild]
+        deploy[Deploy Stage\nCodeBuild]
+
+        source --> build
+        build --> deploy
+    end
+
+    subgraph "Infrastructure"
+        ecr[(Amazon ECR)]
+        ecs[AWS ECS/Fargate]
+        rs[(Amazon Redshift)]
+        secrets[Secrets Manager]
+    end
+
+    git --> source
+    build -->|Push Image| ecr
+    deploy -->|Run Task| ecs
+    ecr -->|Pull Image| ecs
+    ecs -->|Execute DBT\nCommands| rs
+    secrets -->|Provide DB\nCredentials| ecs
+
+    style git fill:#f48024
+    style source fill:#ff9900
+    style build fill:#ff9900
+    style deploy fill:#ff9900
+    style ecr fill:#ff9900
+    style ecs fill:#ff9900
+    style rs fill:#4063d8
+    style secrets fill:#dc3545
