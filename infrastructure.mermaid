@@ -18,6 +18,7 @@ flowchart LR
         ecs[AWS ECS/Fargate]
         rs[(Amazon Redshift)]
         secrets[Secrets Manager]
+        s3[("S3 Static Website\nDBT Docs")]
     end
 
     git --> source
@@ -25,6 +26,7 @@ flowchart LR
     deploy -->|Run Task| ecs
     ecr -->|Pull Image| ecs
     ecs -->|Execute DBT\nCommands| rs
+    ecs -->|Generate & Upload\ndbt docs| s3
     secrets -->|Provide DB\nCredentials| ecs
 
     style git fill:#f48024
@@ -34,4 +36,6 @@ flowchart LR
     style ecr fill:#ff9900
     style ecs fill:#ff9900
     style rs fill:#4063d8
+    style s3 fill:#3f8624
     style secrets fill:#dc3545
+
